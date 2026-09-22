@@ -1,7 +1,5 @@
 import streamlit as st
 from textwrap import dedent
-from html import escape
-
 
 
 # ============================================================
@@ -942,306 +940,6 @@ header {
     accent-color: var(--pink) !important;
 }
 </style>
-
-/* ==========================================================
-   MEJORAS VISUALES · NÁYRA 2.0
-   ========================================================== */
-
-html {
-    scroll-behavior: smooth;
-}
-
-.stApp {
-    background-image:
-        linear-gradient(rgba(20,37,61,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(20,37,61,.025) 1px, transparent 1px);
-    background-size: 42px 42px;
-}
-
-/* Barra superior de navegación */
-.nayra-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 9px;
-    margin: -8px auto 28px;
-    padding: 8px;
-    width: fit-content;
-    max-width: 100%;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: rgba(255,255,255,.72);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 8px 24px rgba(20,37,61,.055);
-}
-
-.nav-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 9px 15px;
-    border-radius: 999px;
-    color: var(--navy);
-    font-size: .78rem;
-    font-weight: 700;
-    text-decoration: none !important;
-    transition: all .2s ease;
-}
-
-.nav-chip:hover {
-    background: var(--pink-light);
-    transform: translateY(-1px);
-}
-
-/* Separador editorial */
-.editorial-line {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 42px 0 24px;
-    color: var(--muted);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.editorial-line::before,
-.editorial-line::after {
-    content: "";
-    height: 1px;
-    flex: 1;
-    background: var(--line);
-}
-
-/* Hero más editorial */
-.hero {
-    isolation: isolate;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 310px;
-    height: 310px;
-    right: -95px;
-    top: -115px;
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 50%;
-    box-shadow:
-        0 0 0 30px rgba(255,255,255,.018),
-        0 0 0 60px rgba(255,255,255,.012);
-    pointer-events: none;
-}
-
-.hero-building {
-    position: absolute;
-    right: 54px;
-    bottom: 0;
-    width: 190px;
-    height: 185px;
-    opacity: .18;
-    pointer-events: none;
-}
-
-.hero-building .tower {
-    position: absolute;
-    bottom: 0;
-    width: 54px;
-    height: 145px;
-    border: 2px solid rgba(255,255,255,.75);
-    border-bottom: 0;
-}
-
-.hero-building .tower:nth-child(1) { left: 8px; height: 105px; }
-.hero-building .tower:nth-child(2) { left: 68px; height: 160px; }
-.hero-building .tower:nth-child(3) { right: 8px; height: 125px; }
-
-.hero-building .window {
-    position: absolute;
-    width: 7px;
-    height: 15px;
-    border: 1px solid rgba(255,255,255,.7);
-    background: rgba(255,255,255,.13);
-}
-
-.hero-building .w1 { left: 25px; bottom: 48px; }
-.hero-building .w2 { left: 85px; bottom: 92px; }
-.hero-building .w3 { left: 85px; bottom: 57px; }
-.hero-building .w4 { right: 25px; bottom: 66px; }
-
-/* Mini panel de estadísticas */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin: 28px 0 42px;
-}
-
-.stat-card {
-    padding: 18px 20px;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    background: rgba(255,255,255,.72);
-    backdrop-filter: blur(8px);
-}
-
-.stat-number {
-    font-family: 'Playfair Display', serif;
-    color: var(--navy);
-    font-size: 1.75rem;
-    font-weight: 700;
-}
-
-.stat-label {
-    color: var(--muted);
-    font-size: .75rem;
-    margin-top: 2px;
-}
-
-/* Tarjetas con profundidad */
-.arch-card-link {
-    transform: translateZ(0);
-}
-
-.arch-card-link:hover {
-    transform: translateY(-8px) rotateX(1deg);
-}
-
-.arch-card-link .arch-icon {
-    transition: transform .35s ease;
-}
-
-.arch-card-link:hover .arch-icon {
-    transform: translateY(-3px) rotate(-3deg) scale(1.04);
-}
-
-.arch-card-link .arch-period {
-    transition: transform .25s ease;
-}
-
-.arch-card-link:hover .arch-period {
-    transform: translateX(4px);
-}
-
-/* Migas de pan */
-.breadcrumb {
-    color: var(--muted);
-    font-size: .76rem;
-    margin: 4px 0 14px;
-}
-
-.breadcrumb strong {
-    color: var(--navy);
-}
-
-/* Barra de progreso */
-.progress-wrap {
-    margin: 0 0 28px;
-}
-
-.progress-meta {
-    display: flex;
-    justify-content: space-between;
-    color: var(--muted);
-    font-size: .72rem;
-    margin-bottom: 7px;
-}
-
-.progress-track {
-    width: 100%;
-    height: 6px;
-    overflow: hidden;
-    border-radius: 99px;
-    background: var(--beige-dark);
-}
-
-.progress-fill {
-    height: 100%;
-    border-radius: inherit;
-    background: linear-gradient(90deg, var(--pink), var(--lilac));
-}
-
-/* Caja de navegación entre estilos */
-.next-nav {
-    margin-top: 34px;
-    padding: 20px;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    background: rgba(255,255,255,.72);
-}
-
-.next-nav-title {
-    color: var(--muted);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-}
-
-.next-nav-name {
-    color: var(--navy);
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-}
-
-/* Inputs */
-[data-testid="stTextInput"] input,
-[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
-    border-radius: 13px !important;
-    border-color: var(--line) !important;
-}
-
-[data-testid="stTextInput"] input:focus {
-    border-color: var(--pink) !important;
-    box-shadow: 0 0 0 2px rgba(233,169,196,.18) !important;
-}
-
-/* Botones más modernos */
-.stButton > button {
-    min-height: 46px;
-    box-shadow: 0 4px 12px rgba(20,37,61,.035);
-}
-
-.stButton > button:active {
-    transform: scale(.985);
-}
-
-/* Selección de texto */
-::selection {
-    background: var(--pink-light);
-    color: var(--navy);
-}
-
-@media (max-width: 700px) {
-    .nayra-nav {
-        width: 100%;
-        justify-content: space-between;
-        overflow-x: auto;
-    }
-
-    .nav-chip {
-        flex: 0 0 auto;
-        padding: 8px 12px;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-building {
-        right: -18px;
-        transform: scale(.78);
-        transform-origin: bottom right;
-    }
-
-    .hero-title,
-    .hero-text {
-        max-width: 85%;
-    }
-}
-
 """, unsafe_allow_html=True)
 
 if st.session_state.modo_oscuro:
@@ -1400,44 +1098,6 @@ main {
     border-color: #304457 !important;
 }
 
-/* Mejoras visuales */
-.nayra-nav,
-.stat-card,
-.next-nav {
-    background: rgba(23,36,51,.82) !important;
-    border-color: #304457 !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,.22) !important;
-}
-
-.nav-chip,
-.stat-number,
-.next-nav-name {
-    color: #F4F1EC !important;
-}
-
-.editorial-line,
-.breadcrumb,
-.progress-meta,
-.stat-label,
-.next-nav-title {
-    color: #AAB7C4 !important;
-}
-
-.progress-track {
-    background: #26394A !important;
-}
-
-[data-testid="stTextInput"] input,
-[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
-    background: #172433 !important;
-    color: #EEF2F6 !important;
-    border-color: #40576B !important;
-}
-
-[data-testid="stTextInput"] input::placeholder {
-    color: #8E9CAA !important;
-}
-
 /* Scrollbar */
 .arch-carousel {
     scrollbar-color: #E9A9C4 #182632;
@@ -1479,19 +1139,6 @@ st.markdown(r"""
 </style>
 """, unsafe_allow_html=True)
 
-
-# ============================================================
-# NAVEGACIÓN GLOBAL
-# ============================================================
-
-tema_actual = "oscuro" if st.session_state.modo_oscuro else "claro"
-html(f"""
-<div class="nayra-nav">
-    <a class="nav-chip" href="?pagina=inicio&tema={tema_actual}">⌂ Inicio</a>
-    <a class="nav-chip" href="?pagina=catalogo&tema={tema_actual}">🏛️ Estilos</a>
-    <a class="nav-chip" href="?pagina=Guatemala&tema={tema_actual}">🇬🇹 Guatemala</a>
-</div>
-""")
 
 # ============================================================
 # INFORMACIÓN DE LOS ESTILOS
@@ -1792,12 +1439,6 @@ elif pagina_url != "inicio" and st.session_state.pagina != pagina_url:
 if "resultado" not in st.session_state:
     st.session_state.resultado = None
 
-if "estilos_visitados" not in st.session_state:
-    st.session_state.estilos_visitados = set()
-
-if "quiz_correctos" not in st.session_state:
-    st.session_state.quiz_correctos = set()
-
 
 def ir_a(nombre):
     st.session_state.pagina = nombre
@@ -1848,22 +1489,10 @@ if st.session_state.pagina == "inicio":
             culturas, materiales e ideas transformaron la manera en que
             construimos nuestros espacios.
         </div>
-
-        <div class="hero-building" aria-hidden="true">
-            <div class="tower"></div><div class="tower"></div><div class="tower"></div>
-            <div class="window w1"></div><div class="window w2"></div>
-            <div class="window w3"></div><div class="window w4"></div>
-        </div>
     </div>
     """)
 
-    html(f"""
-    <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">estilos para explorar</div></div>
-        <div class="stat-card"><div class="stat-number">{len(st.session_state.estilos_visitados)}/7</div><div class="stat-label">estilos visitados en esta sesión</div></div>
-        <div class="stat-card"><div class="stat-number">{len(st.session_state.quiz_correctos)}/7</div><div class="stat-label">mini retos resueltos correctamente</div></div>
-    </div>
-
+    html("""
     <div class="section-title">
         Explora cuatro grandes estilos
     </div>
@@ -1956,47 +1585,26 @@ elif st.session_state.pagina == "catalogo":
     </div>
     """)
 
-    filtro = st.text_input(
-        "🔎 Buscar un estilo",
-        placeholder="Ej. gótico, moderno, brutalista...",
-        key="buscar_estilo"
-    ).strip().lower()
-
-    estilos_catalogo = {
-        k: v for k, v in estilos.items()
-        if not filtro or filtro in v["nombre"].lower() or filtro in v["descripcion"].lower() or filtro in v["periodo"].lower()
-    }
-
-    html(f"""
+    html("""
     <div class="carousel-hint">
-        <span><strong>{len(estilos_catalogo)}</strong> estilos encontrados</span>
+        <span><strong>7 estilos</strong> para descubrir</span>
         <span>← &nbsp; desliza &nbsp; →</span>
     </div>
     """)
 
-    if not estilos_catalogo:
-        html("""<div class="info-box"><div class="info-title">No encontramos ese estilo</div><div class="info-text">Prueba con palabras como clásico, gótico, renacentista, brutalista, moderno o contemporáneo.</div></div>""")
-    else:
-        html("""
-        <div class="carousel-hint">
-            <span><strong>Desliza</strong> para explorar</span>
-            <span>← &nbsp; arrastra &nbsp; →</span>
-        </div>
+    tarjetas = []
+    for clave, datos in estilos.items():
+        tarjetas.append(f"""
+        <a class="arch-card-link" href="?pagina={clave}">
+            <div class="arch-icon">{datos["icono"]}</div>
+            <div class="arch-title">{datos["nombre"]}</div>
+            <div class="arch-description">{datos["descripcion"]}</div>
+            <div class="arch-period">{datos["periodo"]}</div>
+            <div style="margin-top:18px;color:var(--navy);font-size:.82rem;font-weight:700;">Explorar →</div>
+        </a>
         """)
 
-        tarjetas = []
-        for clave, datos in estilos_catalogo.items():
-            tarjetas.append(f"""
-            <a class="arch-card-link" href="?pagina={clave}">
-                <div class="arch-icon">{datos["icono"]}</div>
-                <div class="arch-title">{datos["nombre"]}</div>
-                <div class="arch-description">{datos["descripcion"]}</div>
-                <div class="arch-period">{datos["periodo"]}</div>
-                <div style="margin-top:18px;color:var(--navy);font-size:.82rem;font-weight:700;">Explorar →</div>
-            </a>
-            """)
-
-        html('<div class="arch-carousel">' + ''.join(tarjetas) + '</div>')
+    html('<div class="arch-carousel">' + ''.join(tarjetas) + '</div>')
 
 
 # ============================================================
@@ -2092,18 +1700,6 @@ elif st.session_state.pagina == "Guatemala":
 elif st.session_state.pagina in estilos:
 
     datos = estilos[st.session_state.pagina]
-    orden_estilos = list(estilos.keys())
-    indice_estilo = orden_estilos.index(st.session_state.pagina)
-    progreso = int(((indice_estilo + 1) / len(orden_estilos)) * 100)
-    st.session_state.estilos_visitados.add(st.session_state.pagina)
-
-    html(f"""
-    <div class="breadcrumb">Náyra / <strong>{datos["nombre"]}</strong></div>
-    <div class="progress-wrap">
-        <div class="progress-meta"><span>Ruta de exploración</span><span>{indice_estilo + 1} de {len(orden_estilos)}</span></div>
-        <div class="progress-track"><div class="progress-fill" style="width:{progreso}%;"></div></div>
-    </div>
-    """)
 
     if st.button("← Volver a Náyra", key="volver"):
         ir_a("inicio")
@@ -2282,10 +1878,8 @@ elif st.session_state.pagina in estilos:
     ):
         if respuesta == datos["respuesta"]:
             st.session_state.resultado = "correcto"
-            st.session_state.quiz_correctos.add(st.session_state.pagina)
         else:
             st.session_state.resultado = "incorrecto"
-            st.session_state.quiz_correctos.discard(st.session_state.pagina)
 
     if st.session_state.resultado == "correcto":
         st.success(
@@ -2319,24 +1913,6 @@ elif st.session_state.pagina in estilos:
         )
 
     html("</div>")
-
-    anterior = orden_estilos[indice_estilo - 1] if indice_estilo > 0 else None
-    siguiente = orden_estilos[indice_estilo + 1] if indice_estilo < len(orden_estilos) - 1 else None
-
-    html(f"""
-    <div class="next-nav">
-        <div class="next-nav-title">Continúa explorando</div>
-        <div class="next-nav-name">{estilos[siguiente]["icono"] + " " + estilos[siguiente]["nombre"] if siguiente else "Has llegado al final de la ruta"}</div>
-    </div>
-    """)
-
-    nav_cols = st.columns(2)
-    with nav_cols[0]:
-        if anterior and st.button(f"← {estilos[anterior]["nombre"]}", key=f"prev_{st.session_state.pagina}", use_container_width=True):
-            ir_a(anterior)
-    with nav_cols[1]:
-        if siguiente and st.button(f"{estilos[siguiente]["nombre"]} →", key=f"next_{st.session_state.pagina}", use_container_width=True):
-            ir_a(siguiente)
 
 
 # ============================================================
